@@ -16,9 +16,9 @@ end
 
 Given(/^I enable call forwarding to "(.*?)"$/) do |arg|
   callforward_number = get_test_data(arg)
-  
   edit_call_forwarding
   within '#update_call_forwarding_form' do
+    # Using javascript as Capybara command "choose 'my_amaysim2_setting_call_divert_true" doesnt seem to work on chrome
     page.execute_script("document.getElementById('my_amaysim2_setting_call_divert_true').checked = true")
     fill_in 'my_amaysim2_setting_call_divert_number', :with => callforward_number
     click_button 'Save'
@@ -30,6 +30,7 @@ Then(/^I see the "(.*?)" saved in my settings$/) do |arg|
   callforward_number = get_test_data(arg)
   scroll_to_element_by_id 'settings_call_forwarding'
   within '#settings_call_forwarding' do
+    expect(page.find('.setting-option-value-text')).to have_content("Yes")
     expect(page).to have_content("Forward calls to #{callforward_number}")
   end
 end
@@ -37,6 +38,7 @@ end
 Given(/^I .*disable call forwarding$/) do
   edit_call_forwarding
   within '#update_call_forwarding_form' do
+    # Using javascript as Capybara command "choose 'my_amaysim2_setting_call_divert_true" doesnt seem to work on chrome
     page.execute_script("document.getElementById('my_amaysim2_setting_call_divert_false').checked = true")
     click_button 'Save'
   end
@@ -52,11 +54,9 @@ end
 
 def edit_call_forwarding
   scroll_to_element_by_id 'settings_call_forwarding'
-
   within '#settings_call_forwarding' do
     click_link 'Edit'
   end
-  
   expect(page).to have_selector('a.confirm_popup_confirm')
   page.find('a.confirm_popup_confirm').click
   scroll_to_element_by_id 'settings_call_forwarding'
@@ -70,7 +70,7 @@ def save_call_forwarding_setting
 end
 
 def scroll_to_element_by_id(id)
-  element = page.find("#"+id, wait: 300, visible: true)
+  #Capybara+ChromeDriver seems to have trouble interacting with elements outside visible area, hence the need for this function
   page.execute_script "document.getElementById(\"#{id}\").scrollIntoView();"
 end
   

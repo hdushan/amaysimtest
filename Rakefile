@@ -1,7 +1,7 @@
 require 'cucumber/rake/task'
 
 Cucumber::Rake::Task.new(:test) do |t|
-  t.cucumber_opts = "features --tags ~@ignore --format pretty"
+  t.cucumber_opts = "features --tags ~@ignore --format pretty --format html --out results.html"
 end
 
 task :headless do

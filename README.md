@@ -1,9 +1,9 @@
-quickquote
-==========
+AmaysimTest
+===========
 
 A Cucumber based test framework for Amaysim.
 
-####Things to have installed on your machine 
+####Things to install on your machine 
 (Google them to find installers):
 
 1. git
@@ -12,7 +12,7 @@ A Cucumber based test framework for Amaysim.
 4. chrome
 
 ####To set up the project on your machine:
-1. `git clone https://github.com/hdushan/quickquote.git`
+1. `git clone https://github.com/hdushan/amaysimtest.git`
 2. `bundle install`
 
 ####Rake targets to run tests:
@@ -26,3 +26,8 @@ A Cucumber based test framework for Amaysim.
 ####To specify environment (currently only PROD) - Windows:
 - `set ENVIRONMENT=PROD`
 - `rake` or `rake headless` or `rake chrome`
+
+#### TODO improvements
+- Store passwords encrypted
+- Have Page Objects (perhaps use siteprism?)
+- Couldnt get this working with Selenium/Phantomjs. Try Poltergeist/Phantomjs.
