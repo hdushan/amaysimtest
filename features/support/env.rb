@@ -23,7 +23,7 @@ else
   ENV['PATH'] = (File.join(Dir.pwd, 'tools', ";") << ENV['PATH']).freeze
 end
 
-puts "\n\nPATH: " + ENV[PATH] + "\n\n"
+puts "\n\nPATH: " + ENV['PATH'] + "\n\n"
 
 $test_data_folder = File.join(Dir.pwd, "environments")
 
