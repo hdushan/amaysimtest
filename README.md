@@ -24,10 +24,13 @@ A Cucumber based test framework for Amaysim.
 - `ENVIRONMENT=PROD rake` or `ENVIRONMENT=PROD rake headless` or `ENVIRONMENT=PROD rake chrome`
 
 ####To specify environment (currently only PROD) - Windows:
-- `set ENVIRONMENT=PROD`
-- `rake` or `rake headless` or `rake chrome`
+1. `set ENVIRONMENT=PROD`
+2. `rake` or `rake headless` or `rake chrome`
+
+####Link to CI that runs these tests against PROD:
+https://snap-ci.com/hdushan/amaysimtest/branch/master
 
 #### TODO improvements
 - Store passwords encrypted
 - Have Page Objects (perhaps use siteprism?)
-- Couldnt get this working with Selenium/Phantomjs. Try Poltergeist/Phantomjs.
+- Couldnt get this working with Capybara+Selenium+Phantomjs. Try Capybara+Poltergeist+Phantomjs.
