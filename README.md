@@ -33,4 +33,4 @@ https://snap-ci.com/hdushan/amaysimtest/branch/master
 #### TODO improvements
 - Store passwords encrypted
 - Have Page Objects (perhaps use siteprism?)
-- Couldnt get this working with Capybara+Selenium+Phantomjs. Try Capybara+Poltergeist+Phantomjs.
+- Couldnt get this working with Phantomjs. Page doesnt load completely, hence times out.

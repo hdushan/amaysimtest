@@ -1,3 +1,7 @@
+Before do
+  Capybara.page.driver.browser.manage.window.maximize
+end
+
 Before('@login_before_and_logout_after') do
   visit "/"
   expect(page).to have_content('My amaysim Login')
