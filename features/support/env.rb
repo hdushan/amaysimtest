@@ -16,7 +16,9 @@ def is_mac?
 end
 
 if is_linux?
-  ENV['PATH'] = (File.join(Dir.pwd, 'tools', 'linux', ":") << ENV['PATH']).freeze
+  if not ENV['CI']
+    ENV['PATH'] = (File.join(Dir.pwd, 'tools', 'linux', ":") << ENV['PATH']).freeze
+  end
 elsif is_mac?
   ENV['PATH'] = (File.join(Dir.pwd, 'tools', ":") << ENV['PATH']).freeze
 else
