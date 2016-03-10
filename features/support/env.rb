@@ -23,6 +23,8 @@ else
   ENV['PATH'] = (File.join(Dir.pwd, 'tools', ";") << ENV['PATH']).freeze
 end
 
+puts "\n\nPATH: " + ENV[PATH] + "\n\n"
+
 $test_data_folder = File.join(Dir.pwd, "environments")
 
 unless ENV['ENVIRONMENT']
@@ -34,10 +36,6 @@ $test_data = read_test_data_file(ENV["ENVIRONMENT"])
 
 
 $browser = ENV['BROWSER'] || "chrome"
-
-# Capybara.register_driver :selenium do |app|
-#   Capybara::Selenium::Driver.new(app, :browser => $browser.to_sym)
-# end
 
 if $browser != 'phantomjs'
   Capybara.register_driver :selenium do |app|
@@ -54,6 +52,7 @@ end
 Capybara.configure do |config|
   config.run_server = false
   config.app_host   = $test_data["SERVER_URL"]
+  config.default_max_wait_time = 300
 end
 
 
