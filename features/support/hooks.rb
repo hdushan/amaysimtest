@@ -13,7 +13,11 @@ Before('@login_before_and_logout_after') do
 end
 
 After('@login_before_and_logout_after') do
-  page.execute_script("document.getElementsByClassName('logout-link')[0].scrollIntoView();")
+  begin
+    page.execute_script("document.getElementsByClassName('logout-link')[0].scrollIntoView();")
+  rescue e
+    nil
+  end
   page.find('a.logout-link').click
   expect(page).to have_content('My amaysim Login')
 end

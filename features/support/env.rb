@@ -25,8 +25,6 @@ else
   ENV['PATH'] = (File.join(Dir.pwd, 'tools', ";") << ENV['PATH']).freeze
 end
 
-puts "\n\nPATH: " + ENV['PATH'] + "\n\n"
-
 $test_data_folder = File.join(Dir.pwd, "environments")
 
 unless ENV['ENVIRONMENT']
@@ -46,6 +44,9 @@ if $browser != 'phantomjs'
   Capybara.default_driver  = :selenium
 else
   require 'capybara/poltergeist'
+  Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new(app, timeout: 300)
+  end
   Capybara.javascript_driver = :poltergeist
   Capybara.default_driver = :poltergeist
   Capybara.current_driver = :poltergeist
