@@ -19,5 +19,5 @@ task :firefox do
   Rake::Task['test'].invoke
 end
 
-task :default => [:chrome]
+task :default => [:firefox]
 

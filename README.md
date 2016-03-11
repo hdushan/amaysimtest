@@ -16,10 +16,9 @@ A Cucumber based test framework for Amaysim.
 2. `bundle install`
 
 ####Rake targets to run tests:
-- `rake` *runs cucumber tests in headless mode (with phantomjs)*
 - `rake chrome` *runs cucumber tests using chrome*
-- `rake firefox` *runs cucumber tests using firefox*
-- `rake headless` *runs cucumber tests in headless mode (with phantomjs) NOTE: Not tested successfuly*
+- `rake` or `rake firefox` *runs cucumber tests using firefox*
+- `rake headless` *runs cucumber tests in headless mode (with phantomjs) NOTE: Not tested successfuly, phantomjs times out loading pages*
 
 ####To specify environment (currently only PROD) - Linux or OSX:
 - `ENVIRONMENT=PROD rake` or `ENVIRONMENT=PROD rake firefox` or `ENVIRONMENT=PROD rake chrome`
@@ -28,7 +27,7 @@ A Cucumber based test framework for Amaysim.
 1. `set ENVIRONMENT=PROD`
 2. `rake` or `rake firefox` or `rake chrome`
 
-####Link to CI that runs these tests against PROD:
+####Link to CI Server (Snap-CI) that runs these tests against PROD:
 https://snap-ci.com/hdushan/amaysimtest/branch/master
 
 #### TODO improvements
